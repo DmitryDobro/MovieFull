@@ -16,7 +16,6 @@ function MovieList({movieData, onLikeMovie, savedMovies, onDeleteMovie}) {
   // обнуляем количество добавленных фильмов через кнопку
   // чтобы каждый раз при изменение ширины окна добавлять фиксированное количество фильмов
   const getSizeAndReset = () => {
-    console.log('work');
     setWidthWindow(window.innerWidth);
     setAddMore(0);
   };
@@ -37,7 +36,6 @@ function MovieList({movieData, onLikeMovie, savedMovies, onDeleteMovie}) {
     const number = widthWindow < WIDTH_WINOW_SMALL ? MOVIE_NUMBER_SMALL : MOVIE_NUMBER_LARGE;
     return movieData.slice(0, number + addMore);
   }, [movieData, widthWindow, addMore]);
-  console.log(moviesTorender);
   return (
     <section className='movies'>
       <div className='movies__card-list'>

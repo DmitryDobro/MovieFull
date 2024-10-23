@@ -1,4 +1,4 @@
-import photo from '../../../img/photo.jpeg';
+import photo from '../../../img/photo.jpg';
 import icon from '../../../img/icon-portfolio.svg';
 function AboutStudent() {
   return (

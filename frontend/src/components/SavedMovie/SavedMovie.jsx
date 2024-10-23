@@ -13,7 +13,6 @@ function SavedMovie({onMobileMenu, isOpen, isLoggin, savedMovies, onDeleteMovie}
   const movie = true;
   React.useEffect(() => {
     if (findSavedFilm.length) {
-      console.log(findSavedFilm);
       setFilterMovie(findSavedFilm);
     } else {
       setFilterMovie(savedMovies);
@@ -21,7 +20,6 @@ function SavedMovie({onMobileMenu, isOpen, isLoggin, savedMovies, onDeleteMovie}
   }, [savedMovies]);
 
   function handleFilteredMovie(param) {
-    console.log(savedMovies);
     localStorage.setItem('paramSearchSavedFilm', JSON.stringify(param));
     setParamSearch(param);
     if (param.checkedShortFilm == true) {

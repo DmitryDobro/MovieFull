@@ -25,7 +25,6 @@ function Movies({onMobileMenu, isOpen, isLoggin, onLikeMovie, savedMovies, onDel
   // функция поиска фильма, сначала проверяем были ли отмечене чекбокс,для поиска короткометра.
   // Так же параметры по котрым искали сохраняем в localstorage
   function handleFilteredMovie(param) {
-    console.log(param);
     localStorage.setItem('paramSearch', JSON.stringify(param));
     setParamSearch(param);
     if (param.checkedShortFilm == true) {

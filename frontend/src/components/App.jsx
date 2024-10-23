@@ -19,6 +19,7 @@ import Preloader from './Preloader/Preloader.jsx';
 import InfoTooltip from './InfoTooltip/InfoTooltip.jsx';
 
 function App() {
+  
   const LoggedInFromLlocalStorage = JSON.parse(localStorage.getItem('isLoggin'));
   const [savedMovies, setSavedMovies] = React.useState([]);
   const navigate = useNavigate();
@@ -39,7 +40,6 @@ function App() {
   React.useEffect(() => {
     if (isLoggin) {
       setIsLoading(true);
-      console.log(123);
       Promise.all([api.getUserInfo(), api.getSavedMovies(), movieApi.getMovies()])
         .then(([userData, saveMoviesData, moviesData]) => {
           setCurrentUser(userData);
@@ -56,7 +56,6 @@ function App() {
   };
   // ==================================================
   function handleUpdateUser(data) {
-    console.log(data);
     api
       .uppdateUser(data)
       .then(res => {
@@ -83,7 +82,6 @@ function App() {
     if (isLiked) {
       handleMovieDelete(savedMovie._id);
     } else {
-      console.log(movie);
       api
         .saveMovie(movie)
         .then(res => {
@@ -124,11 +122,9 @@ function App() {
   };
   const handleLogin = (email, password) => {
     setIsLoading(true);
-    console.log(email, password);
     authApi
       .login(email, password)
       .then(res => {
-        console.log(res);
         localStorage.setItem('jwt', res.token);
         localStorage.setItem('isLoggin', true);
         setIsLoggin(true);
